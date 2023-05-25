@@ -9,7 +9,7 @@ public class App
 	    }
 	    
 	    public static void main(String[] args) {
-	        String text = "Hello, World! salaho";
+	        String text = "Hello, World! salah sbai";
 	        
 	        // Vérifier si une chaîne est vide ou null
 	        boolean isEmpty = StringUtils.isEmpty(text);
