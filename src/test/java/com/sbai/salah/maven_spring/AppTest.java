@@ -11,12 +11,12 @@ public class AppTest
 {
     
 	
-	@Test
-	public void testSum() {
-		App app = new App();
-		int res = app.sum(2,3);
-		assertEquals(5, res);
-	}
+//	@Test
+//	public void testSum() {
+//		App app = new App();
+//		int res = app.sum(2,3);
+//		assertEquals(5, res);
+//	}
 	
 	
 	

@@ -1,28 +1,27 @@
 package com.sbai.salah.maven_spring;
-import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 public class App 
 {
 	
-	    public int sum(int a, int b) {
-	        return a + b;
-	    }
-	    
-	    public static void main(String[] args) {
+	public static void main(String[] args) {
+		
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-	        String text = "Hello, World! salahooo";
-	        
-	        // Vérifier si une chaîne est vide ou null
-	        boolean isEmpty = StringUtils.isEmpty(text);
-	        System.out.println("Is Empty: " + isEmpty);
-	        
-	        // Inverser une chaîne
-	        String reversed = StringUtils.reverse(text);
-	        System.out.println("Reversed Text: " + reversed);
-	        
-	        // Compter le nombre d'occurrences d'une sous-chaîne
-	        int count = StringUtils.countMatches(text, "o");
-	        System.out.println("Count of 'o': " + count);
-	    }
+        Country countryConstructor = (Country) context.getBean("countryConstructor");
+        Country countrySetter = (Country) context.getBean("countrySetter");
+        Country countryFromFactory = (Country) context.getBean("countryFromFactory");
+
+
+        System.out.println("Country (constructor): " + countryConstructor.getName() + ", Population: " + countryConstructor.getPopulation());
+        System.out.println("Country (setter): " + countrySetter.getName() + ", Population: " + countrySetter.getPopulation());
+        System.out.println("Country from factory: " + countryFromFactory.getName() + ", Population: " + countryFromFactory.getPopulation());
+
+        ((ClassPathXmlApplicationContext) context).close();
+		
+    }
+
 	
 }
